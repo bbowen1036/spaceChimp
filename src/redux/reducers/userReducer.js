@@ -49,8 +49,9 @@ export default function(state = initialState, action) {
     case UNLIKE_SCREAM:
       return {
         ...state,
-        likes: state.likes.filter(
-          (like) => like.screamId === action.payload.screamId
+        likes: state.likes.filter(                              // should remove the POST that was liked and LEAVE the other ones
+          (like) => like.screamId !== action.payload.screamId                          
+          // (like) => like.screamId === action.payload.screamId
         )
       }
     default:
