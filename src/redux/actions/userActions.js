@@ -51,16 +51,17 @@ export const logoutUser = () => dispatch => {
   dispatch({ type: SET_UNAUTHENTICATED });   // dispatch unauthenticated to store
 };
 
-export const getUserData = () => dispatch => {
+export const getUserData = () => (dispatch) => {
   dispatch({ type: LOADING_USER });
-  axios.get('/user')
-    .then(res => {
+  axios
+    .get('/user')
+    .then((res) => {
       dispatch({
         type: SET_USER,
         payload: res.data
-      })
+      });
     })
-    .catch(err => console.log(err))
+    .catch((err) => console.log(err));
 };
 
 // Upload profile image 
@@ -77,6 +78,7 @@ export const uploadImage = (formData) => dispatch => {
 
 export const editUserDetails = (userDetails) => dispatch => {
   dispatch({ type: LOADING_USER });
+ 
   axios.post('/user', userDetails)
     .then(() => {
       dispatch(getUserData());

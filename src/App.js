@@ -1,5 +1,8 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+// import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
+
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';  // MUI Theme
 import themeFile from './util/theme';
 import jwtDecode from 'jwt-decode';

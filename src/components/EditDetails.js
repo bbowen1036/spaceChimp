@@ -83,7 +83,7 @@ class EditDetails extends Component {
         </Tooltip>
         <Dialog
           open={this.state.open}
-          onclose={this.handleClose}
+          onClose={this.handleClose}
           fullWidth
           maxWidth='sm'
         >

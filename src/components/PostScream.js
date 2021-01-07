@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
-import { editUserDetails } from '../redux/actions/userActions';
 import MyButton from '../util/MyButton';
+// import { editUserDetails } from '../redux/actions/userActions';
 // MUI Stuff
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -20,7 +20,10 @@ import { postScream } from '../redux/actions/dataActions';
 const styles = theme => ({
   ...theme.spread,
   submitButon: {
-    position: 'relative'
+    position: 'relative',
+    marginTop: '10',
+    float: 'right',
+    color: 'red'
   },
   progressSpinner: {
     position: 'absolute'
@@ -28,11 +31,11 @@ const styles = theme => ({
   closeButton: {
     position: 'absolute',
     left: '90%',
-    top: '10%'
+    top: '6%'
   }
 });
 
- 
+
 class PostScream extends Component {
   state = {
     open: false,
@@ -68,6 +71,7 @@ class PostScream extends Component {
   render() {
     const { errors } = this.state;
     const { classes, UI: { loading }} = this.props;   
+    
     return (
       <Fragment>
         <MyButton
