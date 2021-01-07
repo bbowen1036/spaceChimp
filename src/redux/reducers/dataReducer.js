@@ -6,6 +6,7 @@ import {
   DELETE_SCREAM,
   POST_SCREAM,
   SET_SCREAM,
+  SUMBIT_COMMENT,
 } from '../types';
 
 const initialState = {
@@ -57,7 +58,15 @@ export default function(state = initialState, action) {
           action.payload,          // new post will go in the front of the array
           ...state.screams 
         ]
-      }
+      };
+    case SUMBIT_COMMENT:
+      return {
+        ...state,
+        scream: {
+          ...state.scream,       // the other stuff inside the scream object
+          comments: [action.payload, ...state.scream.comments]
+        }
+      };
     default: 
       return state;
   }
