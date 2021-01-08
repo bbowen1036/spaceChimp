@@ -84,7 +84,7 @@ class Notifications extends Component {
               <Typography 
                 component={Link}
                 to={`/users/${not.recipient}/scream/${not.screamId}`}
-                color='default'
+                color='inherit'
                 variant='body1'
               >
                 {not.sender} {verb} your post {time}
@@ -131,7 +131,7 @@ const mDTP = {
 
 Notifications.propTypes = {
   markNotificationsRead: PropTypes.func.isRequired,
-  notifications: PropTypes.array.isRequired
+  notifications: PropTypes.array
 }
 
 export default connect(mSTP, mDTP)(Notifications);
