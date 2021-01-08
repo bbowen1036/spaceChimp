@@ -15,6 +15,6 @@ const mSTP = (state) => ({
 })
 
 AuthRoute.propTypes = {
-  user: PropTypes.object.isRequired
+  user: PropTypes.object
 }
-export default connect(mSTP)(AuthRoute);
+export default connect(mSTP, null)(AuthRoute);

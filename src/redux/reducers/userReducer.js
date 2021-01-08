@@ -4,7 +4,8 @@ import {
   SET_UNAUTHENTICATED,
   LOADING_USER,
   LIKE_SCREAM,
-  UNLIKE_SCREAM
+  UNLIKE_SCREAM,
+  MARK_NOTIFICATIONS_READ
 } from '../types';
 
 const initialState = {
@@ -45,7 +46,7 @@ export default function(state = initialState, action) {
             screamId: action.payload.screamId
           }
         ]
-      }
+      };
     case UNLIKE_SCREAM:
       return {
         ...state,
@@ -53,7 +54,12 @@ export default function(state = initialState, action) {
           (like) => like.screamId !== action.payload.screamId                          
           // (like) => like.screamId === action.payload.screamId
         )
-      }
+      };
+    case MARK_NOTIFICATIONS_READ:
+      state.notifications.forEach(notification => notification.read = true);   // loop thru notification array and change read prop to true
+      return {
+        ...state
+      };
     default:
       return state;
   }

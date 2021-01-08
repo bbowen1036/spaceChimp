@@ -5,7 +5,8 @@ import {
   CLEAR_ERRORS,
   LOADING_UI,
   SET_UNAUTHENTICATED,
-  LOADING_USER
+  LOADING_USER,
+  MARK_NOTIFICATIONS_READ
 } from '../types';
 
 // Login
@@ -85,6 +86,19 @@ export const editUserDetails = (userDetails) => dispatch => {
     })
     .catch(err => console.log(err))
 };
+
+// Notifications
+export const markNotificationsRead = (notificationIds) => dispatch => {
+
+  axios
+    .post('/notifications', notificationIds)
+    .then(res =>{
+      dispatch({
+        type: MARK_NOTIFICATIONS_READ
+      })
+    })
+    .catch(err => console.log(err));
+}
 
 const setAuthorizationHeader = (token) => {
   const FBIdToken = `Bearer ${token}`;
