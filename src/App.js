@@ -26,6 +26,8 @@ import AuthRoute from './util/AuthRoute';
 
 const theme = createMuiTheme(themeFile);
 
+axios.defaults.baseURL = 'https://us-central1-firephoto-fd0d1.cloudfunctions.net/api';
+
 
 const token = localStorage.FBIdToken;
 if(token) {
